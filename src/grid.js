@@ -17,14 +17,19 @@ class GridCell extends React.Component
     }
     handleClick()
     {
+        // If the cell is already red or yellow, or if the game is over, then do nothing
         if (this.state.buttonState !== "cellUnselected" || this.props.isFinished())
         {
             return;
         }
+
+        // Change the color of the button depending on the current turn
         let turn = this.props.getTurn();
         this.setState({
             "buttonState": turn === 0 ? "cellRed" : "cellYellow"
         });
+
+        // Complete the turn
         this.props.takeTurn(this.props.pos);
     }
 }
@@ -209,6 +214,7 @@ class Grid extends React.Component
         })
     }
 
+    // Checks for horizontal and vertical win conditions
     checkWin()
     {
         let board = this.state.board;

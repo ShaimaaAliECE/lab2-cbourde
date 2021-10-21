@@ -1,6 +1,7 @@
 import './App.css';
 import Grid from "./grid.js";
 
+// All of the game logic is in grid.js
 function App() {
   return (
     <div>
